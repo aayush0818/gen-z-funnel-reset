@@ -87,7 +87,7 @@
             "href": "#article-4"
           }
         ],
-        "clip": "inset(7.97231px 15.9446px calc(99.6539% - 47.8339px) calc(99.6539% - 55.8062px) round 39.9169px)",
+        "clip": "inset(7.97233px 15.9447px calc(99.6541% - 47.834px) calc(99.6541% - 55.8063px) round 39.917px)",
         "backdrop": "auto"
       },
       "menuJump": {
@@ -464,7 +464,7 @@
       ],
       "top": {
         "scrollY": 0,
-        "docHeight": 77999,
+        "docHeight": 76752,
         "title": "Gen Z Broke the Marketing Funnel — What Now? | Vogue Business × Archrival",
         "repair": "true",
         "heading": "Gen Z broke the marketing funnel"
@@ -519,13 +519,13 @@
             "href": "#article-4"
           }
         ],
-        "clip": "inset(7.97222px 7.97222px calc(99.6527% - 47.8333px) calc(99.6527% - 47.8333px) round 39.9167px)",
+        "clip": "inset(7.97237px 7.97237px calc(99.6547% - 47.8342px) calc(99.6547% - 47.8342px) round 39.9171px)",
         "backdrop": "auto"
       },
       "menuJump": {
         "url": "http://localhost:8080/#article-3-5",
         "expanded": "false",
-        "scrollY": 67009
+        "scrollY": 65762
       },
       "shareOpen": {
         "expanded": "true",
@@ -764,7 +764,7 @@
           "id": "ComponentSectionGravitatesToMore",
           "heading": "Gen Z gravitates to more vulnerable connections",
           "top": 55800,
-          "height": 11169,
+          "height": 9922,
           "travel": {
             "target": 56050,
             "actual": 56000,
@@ -777,10 +777,10 @@
         {
           "id": "ComponentSectionWorldOfSearch",
           "heading": "The new world of search",
-          "top": 67009,
+          "top": 65762,
           "height": 10990,
           "travel": {
-            "target": 67259,
+            "target": 66012,
             "actual": 67200,
             "moves": 7,
             "method": "wheel"
@@ -790,15 +790,15 @@
         }
       ],
       "bottom": {
-        "scrollY": 77155,
-        "height": 77999,
-        "wheelMoves": 6,
+        "scrollY": 75908,
+        "height": 76752,
+        "wheelMoves": 5,
         "method": "wheel",
         "endingText": "bandon convenience, but reintroduce deliberate friction where it creates meaning: moments of discovery, creative tension, shared experiences and niche cultural relevance.\n\nSuccess will belong to the brands that understand shopping is no longer a straight line to checkout. It’s a cycle of emotional engagement, where attention must be earned, not bought — and loyalty is a result, not a goal.\n\nThe funnel is broken. Now, it’s up to marketers to decide whether they’ll keep optimising for the past, or start building the future.\n\nFuture\nMeaning\nDiscovery\n\nThis is the second installment of a two‑part series on how Gen Z Broke the Marketing Funnel, produced in partnership with youth culture agency Archrival, who provided research, insights, and design.\n\nCheck out the first report here.\n\nBACK TO TOP"
       },
       "imageFailures": [],
       "backToTop": {
-        "moves": 49,
+        "moves": 48,
         "method": "wheel",
         "scrollY": 0
       }
