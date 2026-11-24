@@ -4403,3 +4403,14 @@ html.lenis, html.lenis body { height: auto; }
     transform: none !important;
   }
 }
+
+@media (min-width:768px) {
+  .custom-page[data-site-import-repair="true"] #ComponentSectionShoppingMindless [data-site-import-responsive="531"] {
+    position: sticky !important;
+    top: 0 !important;
+    width: 100vw !important;
+    max-width: 90em !important;
+    height: 100vh !important;
+    max-height: none !important;
+  }
+}
