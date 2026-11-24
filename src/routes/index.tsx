@@ -73,6 +73,7 @@ function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [shareOpen, setShareOpen] = useState(false);
   const [chartModes, setChartModes] = useState<Record<string, ChartMode>>({});
+  const [mindlessStagePinned, setMindlessStagePinned] = useState(false);
   const menuTriggerRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const shareTriggerRef = useRef<HTMLButtonElement>(null);
@@ -112,6 +113,35 @@ function Index() {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [menuOpen, shareOpen]);
+
+  useEffect(() => {
+    const spacer = document.querySelector<HTMLElement>(
+      '#ComponentSectionShoppingMindless [data-site-import-static-stage="mindless-title"]',
+    );
+    const stage = document.querySelector<HTMLElement>(
+      '#ComponentSectionShoppingMindless [data-site-import-responsive="531"]',
+    );
+    if (spacer === null || stage === null) return;
+
+    const media = window.matchMedia("(min-width: 768px)");
+    let pinned = false;
+    const updatePinnedState = () => {
+      const start = spacer.getBoundingClientRect().top + window.scrollY;
+      const end = start + spacer.offsetHeight - stage.offsetHeight;
+      const nextPinned = media.matches && window.scrollY >= start && window.scrollY < end;
+      if (nextPinned === pinned) return;
+      pinned = nextPinned;
+      setMindlessStagePinned(nextPinned);
+    };
+
+    updatePinnedState();
+    window.addEventListener("scroll", updatePinnedState, { passive: true });
+    window.addEventListener("resize", updatePinnedState);
+    return () => {
+      window.removeEventListener("scroll", updatePinnedState);
+      window.removeEventListener("resize", updatePinnedState);
+    };
+  }, []);
 
   return (
     <ChartModeContext.Provider value={{ modes: chartModes, setMode: setChartMode }}>
@@ -2746,7 +2776,7 @@ function ImportedSectionSocialMediaHasMade() {
       <div className={"\x72elative \x78l:\x70y-50"}>
         <div className={"fluid-block \x72elative \x6dd:\x68-[\x3200vh] \x70y-40 \x6dd:\x70y-0"}>
           <div className="[place-self:auto] float-none" data-site-import-static-stage="mindless-title" style={{ order: "0", gridArea: "auto", zIndex: "auto", flexShrink: "1", display: "flex", margin: "0px 9.65625px 0px 9.64062px", inset: "0px", position: "relative", flexBasis: "auto", overflow: "visible", boxSizing: "border-box", width: "1502px", height: "2592px", padding: "0px 0px 1728px" } as CSSProperties}>
-            <div className={"\x61spect-square \x6dd:\x61spect-auto \x6dd:\x68-[\x3100vh] \x6dd:\x74op-0 \x32xl:\x68-screen \x74ext-center \x70y-12 \x66lex \x69tems-center \x6austify-center \x63ontainer \x74op-0 \x72elative"} style={{ translate: "none", rotate: "none", scale: "none", inset: "0px auto auto 0px", margin: "0px", maxWidth: "1501.7px", width: "1501.7px", maxHeight: "864px", height: "864px", padding: "50.0572px 66.7429px", transform: "translate(0px, 0px)" } as CSSProperties} data-site-import-responsive="531">
+            <div className={"\x61spect-square \x6dd:\x61spect-auto \x6dd:\x68-[\x3100vh] \x6dd:\x74op-0 \x32xl:\x68-screen \x74ext-center \x70y-12 \x66lex \x69tems-center \x6austify-center \x63ontainer \x74op-0 \x72elative"} style={{ translate: "none", rotate: "none", scale: "none", inset: "0px auto auto 0px", margin: "0px", maxWidth: "1501.7px", width: "1501.7px", maxHeight: "864px", height: "864px", padding: "50.0572px 66.7429px", transform: "translate(0px, 0px)" } as CSSProperties} data-site-import-responsive="531" data-site-import-desktop-pinned={mindlessStagePinned ? "true" : "false"}>
               <div className={"\x61bsolute \x77-full \x32xl:\x77-screen \x32xl:\x6dax-w-[\x390em] \x61spect-square \x68-auto \x6dy-auto \x6ceft-1/\x32 \x2dtranslate-x-1/\x32 \x74op-1/\x32 \x2dtranslate-y-1/\x32"}>
                 <div className={"\x61bsolute \x77-[\x35%] \x68-[\x325%] \x72ight-[\x38%] \x74op-[\x314%]"} />
                 <div className={"\x61bsolute \x77-[\x35%] \x68-[\x320%] \x6ceft-[\x345%] \x74op-[\x32%]"} />
