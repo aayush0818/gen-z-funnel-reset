@@ -1,10 +1,10 @@
 [
   {
     "viewport": "desktop",
-    "fatal": "Page.evaluate: SyntaxError: Unexpected identifier 'target'\n    at eval (<anonymous>)\n    at UtilityScript.evaluate (<anonymous>:302:30)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+    "fatal": "Page.screenshot: Timeout 6000ms exceeded.\nCall log:\n  - taking page screenshot\n  - waiting for fonts to load...\n  - fonts loaded\n"
   },
   {
     "viewport": "phone",
-    "fatal": "Page.evaluate: SyntaxError: Unexpected identifier 'target'\n    at eval (<anonymous>)\n    at UtilityScript.evaluate (<anonymous>:302:30)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+    "fatal": "Page.screenshot: Timeout 6000ms exceeded.\nCall log:\n  - taking page screenshot\n  - waiting for fonts to load...\n  - fonts loaded\n"
   }
 ]
