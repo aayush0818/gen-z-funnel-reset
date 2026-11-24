@@ -87,7 +87,7 @@
             "href": "#article-4"
           }
         ],
-        "clip": "inset(7.86905px 15.7381px calc(98.3632% - 47.2143px) calc(98.3632% - 55.0834px) round 39.6072px)",
+        "clip": "inset(7.97231px 15.9446px calc(99.6539% - 47.8339px) calc(99.6539% - 55.8062px) round 39.9169px)",
         "backdrop": "auto"
       },
       "menuJump": {
@@ -464,7 +464,7 @@
       ],
       "top": {
         "scrollY": 0,
-        "docHeight": 82414,
+        "docHeight": 77999,
         "title": "Gen Z Broke the Marketing Funnel — What Now? | Vogue Business × Archrival",
         "repair": "true",
         "heading": "Gen Z broke the marketing funnel"
@@ -519,13 +519,13 @@
             "href": "#article-4"
           }
         ],
-        "clip": "inset(7.97242px 7.97242px calc(99.6553% - 47.8345px) calc(99.6553% - 47.8345px) round 39.9173px)",
+        "clip": "inset(7.97222px 7.97222px calc(99.6527% - 47.8333px) calc(99.6527% - 47.8333px) round 39.9167px)",
         "backdrop": "auto"
       },
       "menuJump": {
         "url": "http://localhost:8080/#article-3-5",
         "expanded": "false",
-        "scrollY": 71424
+        "scrollY": 67009
       },
       "shareOpen": {
         "expanded": "true",
@@ -606,9 +606,9 @@
           "id": "ComponentSectionShoppingNotFun",
           "heading": "Shopping isn’t fun anymore",
           "top": 7029,
-          "height": 4269,
+          "height": 4761,
           "travel": {
-            "target": 7157,
+            "target": 7172,
             "actual": 8000,
             "moves": 4,
             "method": "wheel"
@@ -619,10 +619,10 @@
         {
           "id": "ComponentSectionShoppingMindless",
           "heading": "Social media has made shopping mindless",
-          "top": 11298,
-          "height": 12622,
+          "top": 11790,
+          "height": 7714,
           "travel": {
-            "target": 11548,
+            "target": 12021,
             "actual": 12800,
             "moves": 3,
             "method": "wheel"
@@ -633,16 +633,24 @@
         {
           "id": "ComponentSectionDoomshopping",
           "heading": "THERISEOF doomshopping doomshopping",
-          "top": 24040,
+          "top": 19624,
           "height": 10105,
           "travel": {
-            "target": 24290,
-            "actual": 25600,
-            "moves": 8,
+            "target": 19874,
+            "actual": 20800,
+            "moves": 5,
             "method": "wheel"
           },
           "screenshot": "observations/screenshots/preview_phone_section_04_ComponentSectionDoomshopping.jpg",
           "visibleMedia": [
+            {
+              "tag": "IMG",
+              "src": "http://localhost:8080/site-assets/99f223a8e381a60c.png",
+              "alt": "of Gen Zs say they’re currently living beyond their means.",
+              "loaded": true,
+              "width": 132,
+              "height": 132
+            },
             {
               "tag": "IMG",
               "src": "http://localhost:8080/site-assets/60233216ad941454.png",
@@ -680,11 +688,11 @@
         {
           "id": "ComponentSectionRecapturingMagic",
           "heading": "Recapturing magic & meaning",
-          "top": 34225,
+          "top": 29810,
           "height": 5232,
           "travel": {
-            "target": 34382,
-            "actual": 35200,
+            "target": 29967,
+            "actual": 30400,
             "moves": 6,
             "method": "wheel"
           },
@@ -694,26 +702,59 @@
         {
           "id": "ComponentSectionDemandsIRL",
           "heading": "Gen z demands irl connection",
-          "top": 39497,
+          "top": 35081,
           "height": 7028,
           "travel": {
-            "target": 39708,
-            "actual": 40000,
-            "moves": 3,
+            "target": 35292,
+            "actual": 36800,
+            "moves": 4,
             "method": "wheel"
           },
           "screenshot": "observations/screenshots/preview_phone_section_06_ComponentSectionDemandsIRL.jpg",
-          "visibleMedia": []
+          "visibleMedia": [
+            {
+              "tag": "IMG",
+              "src": "http://localhost:8080/site-assets/7c396d783e695ad8.png",
+              "alt": "Chart Image 1",
+              "loaded": false,
+              "width": 94,
+              "height": 94
+            },
+            {
+              "tag": "IMG",
+              "src": "http://localhost:8080/site-assets/357b06ffa6be3057.png",
+              "alt": "Chart Image 2",
+              "loaded": false,
+              "width": 93,
+              "height": 93
+            },
+            {
+              "tag": "IMG",
+              "src": "http://localhost:8080/site-assets/86291438a9297ffa.png",
+              "alt": "Chart Image 3",
+              "loaded": true,
+              "width": 101,
+              "height": 101
+            },
+            {
+              "tag": "IMG",
+              "src": "http://localhost:8080/site-assets/3cd5ec1833ac73b8.png",
+              "alt": "Chart Image 5",
+              "loaded": true,
+              "width": 113,
+              "height": 113
+            }
+          ]
         },
         {
           "id": "ComponentSectionTrustsQuiter",
           "heading": "GEn Z trusts quiter social platforms",
-          "top": 46565,
+          "top": 42149,
           "height": 13539,
           "travel": {
-            "target": 46815,
-            "actual": 48000,
-            "moves": 5,
+            "target": 42399,
+            "actual": 43200,
+            "moves": 4,
             "method": "wheel"
           },
           "screenshot": "observations/screenshots/preview_phone_section_07_ComponentSectionTrustsQuiter.jpg",
@@ -722,11 +763,11 @@
         {
           "id": "ComponentSectionGravitatesToMore",
           "heading": "Gen Z gravitates to more vulnerable connections",
-          "top": 60216,
+          "top": 55800,
           "height": 11169,
           "travel": {
-            "target": 60466,
-            "actual": 60800,
+            "target": 56050,
+            "actual": 56000,
             "moves": 8,
             "method": "wheel"
           },
@@ -736,11 +777,11 @@
         {
           "id": "ComponentSectionWorldOfSearch",
           "heading": "The new world of search",
-          "top": 71424,
+          "top": 67009,
           "height": 10990,
           "travel": {
-            "target": 71674,
-            "actual": 72000,
+            "target": 67259,
+            "actual": 67200,
             "moves": 7,
             "method": "wheel"
           },
@@ -749,15 +790,15 @@
         }
       ],
       "bottom": {
-        "scrollY": 81571,
-        "height": 82415,
+        "scrollY": 77155,
+        "height": 77999,
         "wheelMoves": 6,
         "method": "wheel",
         "endingText": "bandon convenience, but reintroduce deliberate friction where it creates meaning: moments of discovery, creative tension, shared experiences and niche cultural relevance.\n\nSuccess will belong to the brands that understand shopping is no longer a straight line to checkout. It’s a cycle of emotional engagement, where attention must be earned, not bought — and loyalty is a result, not a goal.\n\nThe funnel is broken. Now, it’s up to marketers to decide whether they’ll keep optimising for the past, or start building the future.\n\nFuture\nMeaning\nDiscovery\n\nThis is the second installment of a two‑part series on how Gen Z Broke the Marketing Funnel, produced in partnership with youth culture agency Archrival, who provided research, insights, and design.\n\nCheck out the first report here.\n\nBACK TO TOP"
       },
       "imageFailures": [],
       "backToTop": {
-        "moves": 51,
+        "moves": 49,
         "method": "wheel",
         "scrollY": 0
       }
