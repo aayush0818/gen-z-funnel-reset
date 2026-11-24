@@ -2308,7 +2308,7 @@ function ImportedSectionShoppingIsnTFun() {
       </div>
       <div className="fluid-block">
         <div className={"\x70y-15 \x63ontainer \x72elative \x78l:\x66lex \x78l:\x66lex-col"}>
-          <div className="[place-self:auto] float-none" style={{ order: "0", gridArea: "auto", zIndex: "auto", flexShrink: "1", display: "flex", margin: "0px", inset: "83.4286px auto auto", position: "relative", flexBasis: "auto", overflow: "visible", boxSizing: "border-box", width: "1368px", height: "1728px", padding: "0px 0px 864px" } as CSSProperties}>
+          <div className="[place-self:auto] float-none" data-site-import-static-stage="shopping-chart" style={{ order: "0", gridArea: "auto", zIndex: "auto", flexShrink: "1", display: "flex", margin: "0px", inset: "83.4286px auto auto", position: "relative", flexBasis: "auto", overflow: "visible", boxSizing: "border-box", width: "1368px", height: "1728px", padding: "0px 0px 864px" } as CSSProperties}>
             <div className={"\x66lex \x66lex-col \x66lex-grow \x73ticky \x74op-0 \x6dd:\x74op-20 \x78l:\x68-screen"} style={{ translate: "none", rotate: "none", scale: "none", inset: "0px auto auto 0px", margin: "0px", maxWidth: "1368.23px", width: "1368.23px", maxHeight: "864px", height: "864px", padding: "0px", transform: "translate(0px, 0px)" } as CSSProperties} data-site-import-responsive="249">
               <span className={"\x6fpacity-70 \x6dd:\x61spect-[\x31500/\x3700] \x61bsolute \x6ceft-1/\x32 \x74op-[\x365%] \x2dtranslate-x-1/\x32 \x2dtranslate-y-1/\x32 radial-gradient-pink2 \x62g-radial \x62lur-2xl \x70ointer-events-none \x68-[\x3120%] \x77-[\x3120%]"} />
               <div className={"\x6dd:\x66lex \x6dd:\x69tems-end \x6dd:\x6austify-between \x6dd:\x67ap-x-12 \x6db-8 \x72elative \x7a-5"}>
@@ -2745,7 +2745,7 @@ function ImportedSectionSocialMediaHasMade() {
     <section className="fluid-block" id="article-2-1">
       <div className={"\x72elative \x78l:\x70y-50"}>
         <div className={"fluid-block \x72elative \x6dd:\x68-[\x3200vh] \x70y-40 \x6dd:\x70y-0"}>
-          <div className="[place-self:auto] float-none" style={{ order: "0", gridArea: "auto", zIndex: "auto", flexShrink: "1", display: "flex", margin: "0px 9.65625px 0px 9.64062px", inset: "0px", position: "relative", flexBasis: "auto", overflow: "visible", boxSizing: "border-box", width: "1502px", height: "2592px", padding: "0px 0px 1728px" } as CSSProperties}>
+          <div className="[place-self:auto] float-none" data-site-import-static-stage="mindless-title" style={{ order: "0", gridArea: "auto", zIndex: "auto", flexShrink: "1", display: "flex", margin: "0px 9.65625px 0px 9.64062px", inset: "0px", position: "relative", flexBasis: "auto", overflow: "visible", boxSizing: "border-box", width: "1502px", height: "2592px", padding: "0px 0px 1728px" } as CSSProperties}>
             <div className={"\x61spect-square \x6dd:\x61spect-auto \x6dd:\x68-[\x3100vh] \x6dd:\x74op-0 \x32xl:\x68-screen \x74ext-center \x70y-12 \x66lex \x69tems-center \x6austify-center \x63ontainer \x74op-0 \x72elative"} style={{ translate: "none", rotate: "none", scale: "none", inset: "0px auto auto 0px", margin: "0px", maxWidth: "1501.7px", width: "1501.7px", maxHeight: "864px", height: "864px", padding: "50.0572px 66.7429px", transform: "translate(0px, 0px)" } as CSSProperties} data-site-import-responsive="531">
               <div className={"\x61bsolute \x77-full \x32xl:\x77-screen \x32xl:\x6dax-w-[\x390em] \x61spect-square \x68-auto \x6dy-auto \x6ceft-1/\x32 \x2dtranslate-x-1/\x32 \x74op-1/\x32 \x2dtranslate-y-1/\x32"}>
                 <div className={"\x61bsolute \x77-[\x35%] \x68-[\x325%] \x72ight-[\x38%] \x74op-[\x314%]"} />
@@ -2882,7 +2882,7 @@ function ImportedSectionSocialMediaHasMade() {
         </div>
       </div>
       <div className={"\x70y-15 \x63ontainer \x72elative \x78l:\x66lex \x78l:\x66lex-col"}>
-        <div className="[place-self:auto] float-none" style={{ order: "0", gridArea: "auto", zIndex: "auto", flexShrink: "1", display: "flex", margin: "0px", inset: "83.4286px auto auto", position: "relative", flexBasis: "auto", overflow: "visible", boxSizing: "border-box", width: "1368px", height: "1728px", padding: "0px 0px 864px" } as CSSProperties}>
+        <div className="[place-self:auto] float-none" data-site-import-static-stage="mindless-chart" style={{ order: "0", gridArea: "auto", zIndex: "auto", flexShrink: "1", display: "flex", margin: "0px", inset: "83.4286px auto auto", position: "relative", flexBasis: "auto", overflow: "visible", boxSizing: "border-box", width: "1368px", height: "1728px", padding: "0px 0px 864px" } as CSSProperties}>
           <div className={"\x66lex \x66lex-col \x66lex-grow \x73ticky \x74op-0 \x6dd:\x74op-20 \x78l:\x68-screen"} style={{ translate: "none", rotate: "none", scale: "none", inset: "0px auto auto 0px", margin: "0px", maxWidth: "1368.23px", width: "1368.23px", maxHeight: "864px", height: "864px", padding: "0px", transform: "translate(0px, 0px)" } as CSSProperties} data-site-import-responsive="610">
             <div className={"\x6dd:\x66lex \x6dd:\x69tems-end \x6dd:\x6austify-between \x6dd:\x67ap-x-12 \x6db-8 \x72elative \x7a-5"}>
               <div className={"\x6dax-w-[\x345em] \x78l:\x6dax-w-[\x361em] \x6db-8 \x6dd:\x6db-0"}>
@@ -3502,7 +3502,7 @@ function ImportedSectionSocialMediaHasMade() {
         </div>
       </div>
       <div className={"\x70y-10 \x6dd:\x70y-20"}>
-        <div className="[place-self:auto] float-none" style={{ order: "0", gridArea: "auto", zIndex: "auto", flexShrink: "1", display: "block", margin: "0px", inset: "auto", position: "relative", flexBasis: "auto", overflow: "visible", boxSizing: "border-box", width: "1521px", height: "5864px", padding: "0px 0px 5000px" } as CSSProperties}>
+        <div className="[place-self:auto] float-none" data-site-import-static-stage="mindless-illustration" style={{ order: "0", gridArea: "auto", zIndex: "auto", flexShrink: "1", display: "block", margin: "0px", inset: "auto", position: "relative", flexBasis: "auto", overflow: "visible", boxSizing: "border-box", width: "1521px", height: "5864px", padding: "0px 0px 5000px" } as CSSProperties}>
           <div style={{ translate: "none", rotate: "none", scale: "none", inset: "0px auto auto 0px", margin: "0px", maxWidth: "1521px", width: "1521px", maxHeight: "864px", height: "864px", padding: "0px", transform: "translate(0px, 0px)" } as CSSProperties} data-site-import-responsive="892">
             <div className={"\x6dd:\x77-full \x6dd:\x68-screen \x6cg:\x61spect-[\x31440/\x3780] \x6dd:\x73ticky \x6dd:\x74op-0 \x66lex \x66lex-col \x6dd:\x70t-20 \x78l:\x74op-20"}>
               <span className={"\x68-full \x74op-0 \x62g-gradient-to-r \x66rom-brand-gray \x74o-transparent \x77-20 \x61bsolute \x7a-3 \x68idden \x32xl:\x62lock \x6ceft-0"} />

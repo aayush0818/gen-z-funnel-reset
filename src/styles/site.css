@@ -4323,3 +4323,51 @@ html.lenis, html.lenis body { height: auto; }
 .custom-page[data-site-import-repair="true"] .word + .word {
   margin-left: 0.16em;
 }
+
+@media (max-width:767px) {
+  .custom-page[data-site-import-repair="true"] #ComponentSectionShoppingNotFun [data-site-import-static-stage="shopping-chart"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 263vh !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .custom-page[data-site-import-repair="true"] #ComponentSectionShoppingMindless [data-site-import-static-stage="mindless-title"] {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 100vw !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .custom-page[data-site-import-repair="true"] #ComponentSectionShoppingMindless [data-site-import-responsive="531"] {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 100vw !important;
+    max-height: 100vw !important;
+  }
+
+  .custom-page[data-site-import-repair="true"] #ComponentSectionShoppingMindless [data-site-import-static-stage="mindless-chart"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 214vh !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .custom-page[data-site-import-repair="true"] #ComponentSectionShoppingMindless [data-site-import-static-stage="mindless-illustration"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 365vh !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .custom-page[data-site-import-repair="true"] main .char {
+    transform: none !important;
+  }
+}
