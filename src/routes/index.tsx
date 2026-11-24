@@ -273,7 +273,7 @@ function Index() {
             <ImportedSectionShoppingIsnTFun />
           </div>
           <div id="ComponentSectionShoppingMindless">
-            <ImportedSectionSocialMediaHasMade />
+            <ImportedSectionSocialMediaHasMade mindlessStagePinned={mindlessStagePinned} />
           </div>
           <div id="ComponentSectionDoomshopping">
             <div className={"\x63ontainer \x6dt-30 \x6dd:\x6dt-50 \x32xl:\x6dt-[\x310em] \x6db-20 \x6dd:!\x6db-35 \x32xl:!\x6dax-w-[\x390em]"} id="article-2-2">
@@ -2770,7 +2770,7 @@ function ImportedSectionShoppingIsnTFun() {
   );
 }
 
-function ImportedSectionSocialMediaHasMade() {
+function ImportedSectionSocialMediaHasMade({ mindlessStagePinned }: { mindlessStagePinned: boolean }) {
   return (
     <section className="fluid-block" id="article-2-1">
       <div className={"\x72elative \x78l:\x70y-50"}>
