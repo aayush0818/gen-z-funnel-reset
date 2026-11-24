@@ -4246,3 +4246,80 @@ html.lenis, html.lenis body { height: auto; }
 }
 
 
+
+
+/* Static-import repairs: keep scroll-triggered content visible without the source runtime. */
+.custom-page[data-site-import-repair="true"] main [style*="scale(1, 0)"] {
+  transform: none !important;
+}
+
+.custom-page[data-site-import-repair="true"] main [style*="opacity:0;"],
+.custom-page[data-site-import-repair="true"] main [style$="opacity:0"] {
+  opacity: 1 !important;
+}
+
+.custom-page[data-site-import-repair="true"] main [style*="scale(0.4, 0.4)"] {
+  transform: none !important;
+}
+
+.custom-page[data-site-import-repair="true"] main [style*="--progress:0"] {
+  --progress: 1 !important;
+}
+
+.custom-page[data-site-import-repair="true"] main .style_chart__item__sb06m {
+  counter-reset:
+    imported-genz calc(var(--value-genz) * 100)
+    imported-millennials calc(var(--value-millennials) * 100);
+  --progress: 1 !important;
+}
+
+.custom-page[data-site-import-repair="true"] main .style_labelValueGenz__uCXgV,
+.custom-page[data-site-import-repair="true"] main .style_labelValueMil__oTMLL {
+  color: transparent !important;
+}
+
+.custom-page[data-site-import-repair="true"] main .style_labelValueGenz__uCXgV::after,
+.custom-page[data-site-import-repair="true"] main .style_labelValueMil__oTMLL::after {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-brand-black);
+}
+
+.custom-page[data-site-import-repair="true"] main .style_labelValueGenz__uCXgV::after {
+  content: counter(imported-genz) "%";
+}
+
+.custom-page[data-site-import-repair="true"] main .style_labelValueMil__oTMLL::after {
+  content: counter(imported-millennials) "%";
+}
+
+.custom-page[data-site-import-repair="true"] .opener-active .opener-line-top,
+.custom-page[data-site-import-repair="true"] .opener-active .opener-line-bottom {
+  translate: none !important;
+}
+
+.custom-page[data-site-import-repair="true"] .opener-active .opener-line-top::before,
+.custom-page[data-site-import-repair="true"] .opener-active .opener-line-top::after,
+.custom-page[data-site-import-repair="true"] .opener-active .opener-line-bottom::before,
+.custom-page[data-site-import-repair="true"] .opener-active .opener-line-bottom::after {
+  transform: none !important;
+}
+
+.custom-page[data-site-import-repair="true"] .opener-active .opener-line-top::after {
+  transform: rotate(45deg) !important;
+}
+
+.custom-page[data-site-import-repair="true"] .opener-active .opener-line-bottom::after {
+  transform: rotate(-45deg) !important;
+}
+
+.custom-page[data-site-import-repair="true"] .opener-active .opener-line-middle {
+  opacity: 0;
+}
+
+.custom-page[data-site-import-repair="true"] .word + .word {
+  margin-left: 0.16em;
+}

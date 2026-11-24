@@ -82,14 +82,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Gen Z Broke the Funnel | Vogue Business × Archrival" },
+      {
+        name: "description",
+        content:
+          "An interactive report from Vogue Business and Archrival on how Gen Z is reshaping shopping and the marketing funnel.",
+      },
+      { name: "author", content: "Vogue Business and Archrival" },
+      { property: "og:title", content: "Gen Z Broke the Funnel | Vogue Business × Archrival" },
+      {
+        property: "og:description",
+        content:
+          "An interactive report from Vogue Business and Archrival on how Gen Z is reshaping shopping and the marketing funnel.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {

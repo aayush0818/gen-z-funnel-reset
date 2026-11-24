@@ -1,19 +1,124 @@
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import capturedCSS from "../styles/site.css?raw";
 
+type ChartMode = "genz" | "millennials";
+
+type ChartModeContextValue = {
+  modes: Record<string, ChartMode>;
+  setMode: (id: string, mode: ChartMode) => void;
+};
+
+const ChartModeContext = createContext<ChartModeContextValue | null>(null);
+const sourceShareUrl = "https://www.genzbrokethefunnelwhatnow.com/";
+
+function ChartToggle({ id }: { id: string }) {
+  const context = useContext(ChartModeContext);
+  if (context === null) return null;
+
+  const mode = context.modes[id] ?? "genz";
+  const toggleClass = `h-[2.875em] rounded-full border border-current grid grid-cols-2 text-center items-center uppercase gap-x-10 px-6 relative text-xl whitespace-nowrap font-vogue leading-[2.4] chart-toggle cursor-pointer justify-between ${mode === "millennials" ? "chart-toggle--active" : ""}`;
+
+  return (
+    <div className={toggleClass} role="group" aria-label="Choose which generation to highlight">
+      <span className="absolute inset-1 bg-current rounded-full chart-toggle__bg" aria-hidden="true" />
+      <button
+        type="button"
+        className={`appearance-none border-0 bg-transparent cursor-pointer relative transition-colors duration-300 pt-[0.2em] w-full ${mode === "genz" ? "text-brand-white" : "text-brand-black"}`}
+        aria-pressed={mode === "genz"}
+        onClick={() => context.setMode(id, "genz")}
+      >
+        Gen Zs
+      </button>
+      <button
+        type="button"
+        className={`appearance-none border-0 bg-transparent cursor-pointer relative transition-colors duration-300 pt-[0.2em] w-full ${mode === "millennials" ? "text-brand-white" : "text-brand-black"}`}
+        aria-pressed={mode === "millennials"}
+        onClick={() => context.setMode(id, "millennials")}
+      >
+        Millennials
+      </button>
+    </div>
+  );
+}
+
 export const Route = createFileRoute("/")({
-  head: () => ({ meta: [{ title: "Gen Z Broke The Funnel" }] }),
+  head: () => ({
+    meta: [
+      { title: "Gen Z Broke the Marketing Funnel — What Now? | Vogue Business × Archrival" },
+      {
+        name: "description",
+        content:
+          "Vogue Business and Archrival explore how Gen Z is changing shopping, discovery, and the marketing funnel.",
+      },
+      {
+        property: "og:title",
+        content: "Gen Z Broke the Marketing Funnel — What Now? | Vogue Business × Archrival",
+      },
+      {
+        property: "og:description",
+        content:
+          "Vogue Business and Archrival explore how Gen Z is changing shopping, discovery, and the marketing funnel.",
+      },
+      { property: "og:type", content: "article" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   staticData: { importedDocument: { html: { "className": "__variable_0a3dfc __variable_ea631d __variable_55d37f __variable_d7eb36 __variable_6591ef lenis", "lang": "en", "style": { scrollBehavior: "auto" } }, body: { "data-site-import-popup-incomplete": "document-menu-budget", "data-site-import-responsive-incomplete": "scroll", "data-site-import-scroll-incomplete": "budget", "style": { scrollBehavior: "auto" } } } },
   component: Index,
 });
 
 function Index() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [shareOpen, setShareOpen] = useState(false);
+  const [chartModes, setChartModes] = useState<Record<string, ChartMode>>({});
+  const menuTriggerRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const shareTriggerRef = useRef<HTMLButtonElement>(null);
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+    menuTriggerRef.current?.focus();
+  };
+
+  const closeShare = () => {
+    setShareOpen(false);
+    shareTriggerRef.current?.focus();
+  };
+
+  const setChartMode = (id: string, mode: ChartMode) => {
+    setChartModes((current) => ({ ...current, [id]: mode }));
+  };
+
+  useEffect(() => {
+    if (menuOpen) menuRef.current?.querySelector<HTMLAnchorElement>("a")?.focus();
+  }, [menuOpen]);
+
+  useEffect(() => {
+    if (!menuOpen && !shareOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      if (menuOpen) {
+        setMenuOpen(false);
+        menuTriggerRef.current?.focus();
+      } else if (shareOpen) {
+        setShareOpen(false);
+        shareTriggerRef.current?.focus();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [menuOpen, shareOpen]);
+
   return (
+    <ChartModeContext.Provider value={{ modes: chartModes, setMode: setChartMode }}>
     <>
       <style>{capturedCSS}</style>
       <div hidden />
-      <div className={"custom-page \x6fverflow-clip"}>
+      <div className={"custom-page \x6fverflow-clip"} data-site-import-repair="true">
         <div className={"\x61bsolute \x69nset-0 \x68-[\x3100%] \x6fverflow-hidden"}>
           <div className={"\x69nset-x-0 \x74op-0 \x68-[\x3100vh] \x70ointer-events-none \x61bsolute"} style={{ transform: "translateY(-216px)" }} data-site-import-responsive="4">
             <picture style={{ display: "contents" }}>
@@ -45,13 +150,47 @@ function Index() {
         </div>
         <div className={"\x70y-4 \x63ontainer \x66ixed \x72ight-0 \x77-1/\x32 \x74op-0 \x7a-[\x356] \x6dax-w-none! \x74ransition-colors \x64uration-300"}>
           <div className={"\x66lex \x69tems-center \x6austify-end \x72elative"}>
-            <span className={"\x66ixed \x69nset-0 \x6ceft-0 \x74op-0 \x77-full \x68-full \x62g-brand-black/\x330 \x74ransition-opacity \x64uration-500 \x70ointer-events-none \x6fpacity-0"} />
-            <span className={"\x72elative \x73ize-10 \x66lex \x6austify-center \x69tems-center \x72ounded-full \x62g-brand-black \x74ext-brand-white group \x63ursor-pointer opener \x7a-2"} aria-expanded="false" aria-controls="site-menu">
+            <button
+              type="button"
+              aria-label="Close article menu"
+              aria-hidden={!menuOpen}
+              tabIndex={-1}
+              onClick={closeMenu}
+              className={`fixed inset-0 left-0 top-0 w-full h-full bg-brand-black/30 transition-opacity duration-500 ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+            />
+            <button
+              ref={menuTriggerRef}
+              type="button"
+              className={`relative size-10 flex justify-center items-center rounded-full bg-brand-black text-brand-white group cursor-pointer opener z-2 ${menuOpen ? "opener-active" : ""}`}
+              aria-label={menuOpen ? "Close article menu" : "Open article menu"}
+              aria-expanded={menuOpen}
+              aria-controls="site-menu"
+              onClick={() => {
+                if (menuOpen) {
+                  closeMenu();
+                } else {
+                  setShareOpen(false);
+                  setMenuOpen(true);
+                }
+              }}
+            >
               <span className={"\x61bsolute \x74op-1/\x32 \x77ill-change-transform opener-line-top \x2dtranslate-y-1"} />
               <span className={"\x61bsolute \x74op-1/\x32 \x77ill-change-transform opener-line-middle"} />
               <span className={"\x61bsolute \x74op-1/\x32 \x77ill-change-transform opener-line-bottom \x74ranslate-y-1"} />
-            </span>
-            <div className={"\x62g-brand-black \x74ext-brand-white \x61bsolute \x2dright-2 \x2dtop-2 \x77-[\x63alc(\x3100vw-1rem)] \x6dax-w-[\x324rem] \x70t-14 \x70-6 \x66ont-vogue \x78l:\x2dright-4 header-menu"}>
+            
+            </button>
+            <div
+              id="site-menu"
+              ref={menuRef}
+              role="navigation"
+              aria-label="Article sections"
+              aria-hidden={!menuOpen}
+              inert={!menuOpen}
+              onClick={(event) => {
+                if (event.target instanceof HTMLElement && event.target.closest("a")) closeMenu();
+              }}
+              className={`bg-brand-black text-brand-white absolute -right-2 -top-2 w-[calc(100vw-1rem)] max-w-[24rem] pt-14 p-6 font-vogue xl:-right-4 header-menu ${menuOpen ? "header-menu-active" : ""}`}
+            >
               <div className={"\x70t-1 \x6fverflow-hidden"}>
                 <ol className={"\x6cist-custom \x74ext-base \x78l:\x74ext-lg \x66ont-vogue!"}>
                   <li className="stagger-item" style={{ "--d": "0s" } as CSSProperties}>
@@ -561,11 +700,7 @@ function Index() {
                     <p className={"\x74ext-body1 \x6db-6 \x6dd:\x6db-0"}>Do you ever…?</p>
                     <div className={"\x6dd:\x6austify-end \x66lex \x66lex-shrink-0 \x73ticky \x74op-header"}>
                       <div className={"\x77-full \x6dd:\x77-auto"}>
-                        <div className={"\x68-[\x32.\x3875em] \x72ounded-full \x62order \x62order-current \x67rid \x67rid-cols-2 \x74ext-center \x69tems-center \x75ppercase \x67ap-x-10 \x70x-6 \x72elative \x74ext-xl \x77hitespace-nowrap \x66ont-vogue \x6ceading-[\x32.\x34] chart-toggle \x63ursor-pointer \x6austify-between"}>
-                          <span className={"\x61bsolute \x69nset-1 \x62g-current \x72ounded-full chart-toggle__bg"} />
-                          <span className={"\x72elative \x74ransition-colors \x64uration-300 \x70t-[\x30.\x32em] \x77-full \x74ext-white"}>Gen Zs</span>
-                          <span className={"\x72elative \x74ransition-colors \x64uration-300 \x70t-[\x30.\x32em] \x77-full \x74ext-black"}>Millennials</span>
-                        </div>
+                        <ChartToggle id="shopping-discovery" />
                         <div className={"\x74ext-sm \x66ont-adobe \x75ppercase \x66lex-shrink-0 \x74ext-right \x6dt-4 \x74ext-right"}>Source: <span className={"\x66ont-bold \x69talic"}>Archrival</span></div>
                       </div>
                     </div>
@@ -1574,11 +1709,7 @@ function Index() {
                   </div>
                   <div className={"\x66ixed \x62ottom-0 \x6dd:\x68idden \x7a-22 \x62g-brand-gray \x70x-4 \x70y-4 \x74ransition-transform \x64uration-300 \x6ceft-0 \x72ight-0 \x74ranslate-y-[\x3200%]"}>
                     <div>
-                      <div className={"\x68-[\x32.\x3875em] \x72ounded-full \x62order \x62order-current \x67rid \x67rid-cols-2 \x74ext-center \x69tems-center \x75ppercase \x67ap-x-10 \x70x-6 \x72elative \x74ext-xl \x77hitespace-nowrap \x66ont-vogue \x6ceading-[\x32.\x34] chart-toggle \x63ursor-pointer \x6austify-between"}>
-                        <span className={"\x61bsolute \x69nset-1 \x62g-current \x72ounded-full chart-toggle__bg"} />
-                        <span className={"\x72elative \x74ransition-colors \x64uration-300 \x70t-[\x30.\x32em] \x77-full \x74ext-white"}>Gen Zs</span>
-                        <span className={"\x72elative \x74ransition-colors \x64uration-300 \x70t-[\x30.\x32em] \x77-full \x74ext-black"}>Millennials</span>
-                      </div>
+                      <ChartToggle id="shopping-mindless" />
                       <div className={"\x74ext-sm \x66ont-adobe \x75ppercase \x66lex-shrink-0 \x74ext-right \x6dt-4 \x74ext-right"}>Source: <span className={"\x66ont-bold \x69talic"}>Archrival</span></div>
                     </div>
                   </div>
@@ -1821,36 +1952,63 @@ function Index() {
           </div>
         </main>
         <div className={"\x66ixed \x72ight-8 \x62ottom-4 \x78l:\x72ight-12 \x78l:\x62ottom-6 \x7a-50"}>
-          <span className={"\x73ize-10 \x72ounded-full \x62order \x62order-brand-black \x74ext-brand-black \x63ursor-pointer \x72elative \x7a-1 \x66lex \x69tems-center \x6austify-center \x74ransition-colors \x64uration-300 \x68over:\x62g-brand-black \x68over:\x74ext-brand-white \x66ocus-visible:\x6futline-none \x66ocus-visible:\x72ing-2 \x66ocus-visible:\x72ing-brand-sea \x66ocus-visible:\x72ing-offset-2"} aria-label="Open share options" aria-expanded="false">
-            <svg className={"\x73ize-5 \x66lex \x69tems-center \x6austify-center \x74ransition-transform \x64uration-300 \x61bsolute \x64elay-150"} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <button
+            ref={shareTriggerRef}
+            type="button"
+            className="appearance-none bg-transparent size-10 rounded-full border border-brand-black text-brand-black cursor-pointer relative z-1 flex items-center justify-center transition-colors duration-300 hover:bg-brand-black hover:text-brand-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-sea focus-visible:ring-offset-2"
+            aria-label={shareOpen ? "Close share options" : "Open share options"}
+            aria-expanded={shareOpen}
+            aria-controls="share-options"
+            onClick={() => {
+              if (shareOpen) {
+                closeShare();
+              } else {
+                setMenuOpen(false);
+                setShareOpen(true);
+              }
+            }}
+          >
+            <svg className={`size-5 flex items-center justify-center transition-transform duration-300 absolute delay-150 ${shareOpen ? "scale-0 opacity-60" : "scale-100 opacity-100"}`} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M17 22q-1.2 0-2.1-.9T14 19v-.7l-7-4.1a3 3 0 0 1-2 .8q-1.2 0-2.1-.9T2 12t.9-2.1T5 9a3 3 0 0 1 2 .8l7-4.1V5q0-1.2.9-2.1T17 2t2.1.9T20 5t-.9 2.1T17 8a3 3 0 0 1-2-.8l-7 4.1v1.4l7 4.1a3 3 0 0 1 2-.8q1.2 0 2.1.9T20 19t-.9 2.1-2.1.9m0-2q.4 0 .7-.3t.3-.7l-.3-.7-.7-.3-.7.3-.3.7q0 .4.3.7t.7.3M5 13q.4 0 .7-.3T6 12l-.3-.7L5 11l-.7.3-.3.7q0 .4.3.7t.7.3m12-7q.4 0 .7-.3T18 5l-.3-.7L17 4l-.7.3-.3.7q0 .4.3.7t.7.3" fill="currentColor" />
             </svg>
-            <svg className={"\x73ize-5 \x66lex \x69tems-center \x6austify-center \x74ransition-transform \x64uration-300 \x61bsolute \x64elay-0 \x73cale-0 \x6fpacity-60"} viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg className={`size-5 flex items-center justify-center transition-transform duration-300 absolute delay-0 ${shareOpen ? "scale-100 opacity-100" : "scale-0 opacity-60"}`} viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M6.4 19.8 5 18.4l5.6-5.6L5 7.2l1.4-1.4 5.6 5.6 5.6-5.6L19 7.2l-5.6 5.6 5.6 5.6-1.4 1.4-5.6-5.6z" fill="currentColor" />
             </svg>
-          </span>
-          <div className={"\x61bsolute \x74op-0 \x72ight-0 \x68-full \x66lex \x69tems-center \x67ap-6 \x70r-14 \x62g-brand-black \x74ext-brand-white \x72ounded-full \x70x-6"} style={{ clipPath: "inset(0% 0% 0% 100% round 2rem)", pointerEvents: "none" } as CSSProperties}>
-            <span className={"\x63ursor-pointer \x74ransition-opacity \x64uration-300 \x6fpacity-60 \x68over:\x6fpacity-100"} aria-label="Share on X">
+          </button>
+          <div
+            id="share-options"
+            role="group"
+            aria-label="Share this story"
+            aria-hidden={!shareOpen}
+            inert={!shareOpen}
+            className="absolute top-0 right-0 h-full flex items-center gap-6 pr-14 bg-brand-black text-brand-white rounded-full px-6 share-dropdown"
+            style={{
+              clipPath: shareOpen ? "inset(0% round 2rem)" : "inset(0% 0% 0% 100% round 2rem)",
+              pointerEvents: shareOpen ? "auto" : "none",
+            }}
+          >
+            <a className="cursor-pointer transition-opacity duration-300 opacity-60 hover:opacity-100" aria-label="Share on X" href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(sourceShareUrl)}`} target="_blank" rel="noreferrer">
               <svg className={"\x73ize-5"} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M17.2 4.2h2.7L14 11l7.1 9.2h-5.6l-4.3-5.6-5 5.6H3.4L9.8 13 3 4.2h5.7l4 5.2zm-1 14.4h1.5L8 5.8H6.2z" fill="currentColor" />
               </svg>
-            </span>
-            <span className={"\x63ursor-pointer \x74ransition-opacity \x64uration-300 \x6fpacity-60 \x68over:\x6fpacity-100"} aria-label="Share on Facebook">
+            </a>
+            <a className="cursor-pointer transition-opacity duration-300 opacity-60 hover:opacity-100" aria-label="Share on Facebook" href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(sourceShareUrl)}`} target="_blank" rel="noreferrer">
               <svg className={"\x73ize-5"} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M16.5 3.8H14q-3.8.1-4 4v1.9H7.5V13H10v7.2h3.5V13h2.9V9.7h-2.9V8q-.1-1.2 1.2-1.2h1.8z" fill="currentColor" />
               </svg>
-            </span>
-            <span className={"\x63ursor-pointer \x74ransition-opacity \x64uration-300 \x6fpacity-60 \x68over:\x6fpacity-100"} aria-label="Share on LinkedIn">
+            </a>
+            <a className="cursor-pointer transition-opacity duration-300 opacity-60 hover:opacity-100" aria-label="Share on LinkedIn" href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(sourceShareUrl)}`} target="_blank" rel="noreferrer">
               <svg className={"\x73ize-5"} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M4.8 2.6a2.3 2.3 0 1 0 0 4.5 2.3 2.3 0 0 0 0-4.5" fill="currentColor" />
                 <path d="M6.8 8.8h-4v12.6h4z" fill="currentColor" />
                 <path d="M16.8 8.5c-2 0-3.2 1-3.7 2H13V8.8H9.2v12.6h4v-6.2c0-1.7.3-3.2 2.3-3.2s2 1.8 2 3.3v6.1h4v-6.9c0-3.4-.8-6-4.7-6" fill="currentColor" />
               </svg>
-            </span>
+            </a>
           </div>
         </div>
       </div>
     </>
+    </ChartModeContext.Provider>
   );
 }
 
@@ -4147,11 +4305,7 @@ function ImportedSectionGEnZTrustsQuiter() {
               <p className={"\x74ext-body1 \x6db-6 \x6dd:\x6db-0"}>When researching brands and products on social media, what do you typically look at? Select all that apply.</p>
               <div className={"\x6dd:\x6austify-end \x66lex \x66lex-shrink-0 \x73ticky \x74op-header"}>
                 <div className={"\x77-full \x6dd:\x77-auto"}>
-                  <div className={"\x68-[\x32.\x3875em] \x72ounded-full \x62order \x62order-current \x67rid \x67rid-cols-2 \x74ext-center \x69tems-center \x75ppercase \x67ap-x-10 \x70x-6 \x72elative \x74ext-xl \x77hitespace-nowrap \x66ont-vogue \x6ceading-[\x32.\x34] chart-toggle \x63ursor-pointer \x6austify-between"}>
-                    <span className={"\x61bsolute \x69nset-1 \x62g-current \x72ounded-full chart-toggle__bg"} />
-                    <span className={"\x72elative \x74ransition-colors \x64uration-300 \x70t-[\x30.\x32em] \x77-full \x74ext-white"}>Gen Zs</span>
-                    <span className={"\x72elative \x74ransition-colors \x64uration-300 \x70t-[\x30.\x32em] \x77-full \x74ext-black"}>Millennials</span>
-                  </div>
+                  <ChartToggle id="social-platform-research" />
                   <div className={"\x74ext-sm \x66ont-adobe \x75ppercase \x66lex-shrink-0 \x74ext-right \x6dt-4 \x74ext-right"}>Source: <span className={"\x66ont-bold \x69talic"}>Archrival</span></div>
                 </div>
               </div>
@@ -5035,11 +5189,7 @@ function ImportedSectionGEnZTrustsQuiter() {
             </div>
             <div className={"\x66ixed \x62ottom-0 \x6dd:\x68idden \x7a-22 \x62g-brand-gray \x70x-4 \x70y-4 \x74ransition-transform \x64uration-300 \x6ceft-0 \x72ight-0 \x74ranslate-y-[\x3200%]"}>
               <div>
-                <div className={"\x68-[\x32.\x3875em] \x72ounded-full \x62order \x62order-current \x67rid \x67rid-cols-2 \x74ext-center \x69tems-center \x75ppercase \x67ap-x-10 \x70x-6 \x72elative \x74ext-xl \x77hitespace-nowrap \x66ont-vogue \x6ceading-[\x32.\x34] chart-toggle \x63ursor-pointer \x6austify-between"}>
-                  <span className={"\x61bsolute \x69nset-1 \x62g-current \x72ounded-full chart-toggle__bg"} />
-                  <span className={"\x72elative \x74ransition-colors \x64uration-300 \x70t-[\x30.\x32em] \x77-full \x74ext-white"}>Gen Zs</span>
-                  <span className={"\x72elative \x74ransition-colors \x64uration-300 \x70t-[\x30.\x32em] \x77-full \x74ext-black"}>Millennials</span>
-                </div>
+                <ChartToggle id="social-comments" />
                 <div className={"\x74ext-sm \x66ont-adobe \x75ppercase \x66lex-shrink-0 \x74ext-right \x6dt-4 \x74ext-right"}>Source: <span className={"\x66ont-bold \x69talic"}>Archrival</span></div>
               </div>
             </div>
@@ -5967,11 +6117,7 @@ function ImportedSectionTheNewWorldOf() {
               <p className={"\x74ext-body1 \x6db-6 \x6dd:\x6db-0"}>Have you ever used generative <mark className="mark-pink">AI tools</mark> to do any of the following?</p>
               <div className={"\x6dd:\x6austify-end \x66lex \x66lex-shrink-0 \x73ticky \x74op-header"}>
                 <div className={"\x77-full \x6dd:\x77-auto"}>
-                  <div className={"\x68-[\x32.\x3875em] \x72ounded-full \x62order \x62order-current \x67rid \x67rid-cols-2 \x74ext-center \x69tems-center \x75ppercase \x67ap-x-10 \x70x-6 \x72elative \x74ext-xl \x77hitespace-nowrap \x66ont-vogue \x6ceading-[\x32.\x34] chart-toggle \x63ursor-pointer \x6austify-between"}>
-                    <span className={"\x61bsolute \x69nset-1 \x62g-current \x72ounded-full chart-toggle__bg"} />
-                    <span className={"\x72elative \x74ransition-colors \x64uration-300 \x70t-[\x30.\x32em] \x77-full \x74ext-white"}>Gen Zs</span>
-                    <span className={"\x72elative \x74ransition-colors \x64uration-300 \x70t-[\x30.\x32em] \x77-full \x74ext-black"}>Millennials</span>
-                  </div>
+                  <ChartToggle id="new-search-ai" />
                   <div className={"\x74ext-sm \x66ont-adobe \x75ppercase \x66lex-shrink-0 \x74ext-right \x6dt-4 \x74ext-right"}>Source: <span className={"\x66ont-bold \x69talic"}>Archrival</span></div>
                 </div>
               </div>
@@ -7105,11 +7251,7 @@ function ImportedSectionTheNewWorldOf() {
             </div>
             <div className={"\x66ixed \x62ottom-0 \x6dd:\x68idden \x7a-22 \x62g-brand-gray \x70x-4 \x70y-4 \x74ransition-transform \x64uration-300 \x6ceft-0 \x72ight-0 \x74ranslate-y-[\x3200%]"}>
               <div>
-                <div className={"\x68-[\x32.\x3875em] \x72ounded-full \x62order \x62order-current \x67rid \x67rid-cols-2 \x74ext-center \x69tems-center \x75ppercase \x67ap-x-10 \x70x-6 \x72elative \x74ext-xl \x77hitespace-nowrap \x66ont-vogue \x6ceading-[\x32.\x34] chart-toggle \x63ursor-pointer \x6austify-between"}>
-                  <span className={"\x61bsolute \x69nset-1 \x62g-current \x72ounded-full chart-toggle__bg"} />
-                  <span className={"\x72elative \x74ransition-colors \x64uration-300 \x70t-[\x30.\x32em] \x77-full \x74ext-white"}>Gen Zs</span>
-                  <span className={"\x72elative \x74ransition-colors \x64uration-300 \x70t-[\x30.\x32em] \x77-full \x74ext-black"}>Millennials</span>
-                </div>
+                <ChartToggle id="new-search-private" />
                 <div className={"\x74ext-sm \x66ont-adobe \x75ppercase \x66lex-shrink-0 \x74ext-right \x6dt-4 \x74ext-right"}>Source: <span className={"\x66ont-bold \x69talic"}>Archrival</span></div>
               </div>
             </div>
