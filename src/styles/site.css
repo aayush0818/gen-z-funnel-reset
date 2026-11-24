@@ -4444,3 +4444,17 @@ html.lenis, html.lenis body { height: auto; }
     left: 0 !important;
   }
 }
+
+@media (min-width:960px) {
+  .custom-page[data-site-import-repair="true"] #ComponentSectionShoppingMindless [data-site-import-responsive="531"] {
+    background-image: url("/site-assets/mindless-desktop-canvas-fallback.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .custom-page[data-site-import-repair="true"] #ComponentSectionShoppingMindless [data-site-import-responsive="531"] svg[width="1440"],
+  .custom-page[data-site-import-repair="true"] #ComponentSectionShoppingMindless [data-site-import-responsive="531"] [data-site-import-responsive="550"] {
+    display: none !important;
+  }
+}
