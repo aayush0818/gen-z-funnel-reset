@@ -12,7 +12,6 @@ Pexels photographs are bundled locally, credited on the page and listed with
 their license details in the register.
 
 Design reference: https://www.genzbrokethefunnelwhatnow.com/
-
 This project was built with [Lovable](https://lovable.dev).
 
 ## Build with Lovable
@@ -33,7 +32,6 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
 ## Deploy on Vercel
 
 The app is configured with Nitro's Vercel preset. No `vercel.json` or custom output directory is
