@@ -4457,4 +4457,10 @@ html.lenis, html.lenis body { height: auto; }
   .custom-page[data-site-import-repair="true"] #ComponentSectionShoppingMindless [data-site-import-responsive="531"] [data-site-import-responsive="550"] {
     display: none !important;
   }
+
+  .custom-page[data-site-import-repair="true"] #ComponentSectionShoppingMindless [data-site-import-responsive="531"][data-site-import-desktop-detail-visible="true"] {
+    background-image: url("/site-assets/mindless-desktop-scroll-fallback.jpg");
+    background-position: left center;
+    background-size: 50% 100%;
+  }
 }
