@@ -1,10 +1,10 @@
 [
   {
     "viewport": "desktop",
-    "fatal": "Locator.wait_for: Timeout 5000ms exceeded.\nCall log:\n  - waiting for locator(\"main\") to be visible\n    - locator resolved to visible <main role=\"main\" class=\"relative flex-grow w-full overflow-clip\">…</main>\n"
+    "fatal": "Page.evaluate: SyntaxError: Unexpected identifier 'target'\n    at eval (<anonymous>)\n    at UtilityScript.evaluate (<anonymous>:302:30)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
   },
   {
     "viewport": "phone",
-    "fatal": "Locator.wait_for: Timeout 5000ms exceeded.\nCall log:\n  - waiting for locator(\"main\") to be visible\n"
+    "fatal": "Page.evaluate: SyntaxError: Unexpected identifier 'target'\n    at eval (<anonymous>)\n    at UtilityScript.evaluate (<anonymous>:302:30)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
   }
 ]
