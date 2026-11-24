@@ -82,18 +82,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Gen Z Broke the Funnel | Vogue Business × Archrival" },
+      { title: "The Crowd Effect — Everyone Thinks So. Does That Make It True?" },
       {
         name: "description",
         content:
-          "An interactive report from Vogue Business and Archrival on how Gen Z is reshaping shopping and the marketing funnel.",
+          "An editorial exploration of how popularity, social pressure and repetition influence what we think, believe and do.",
       },
-      { name: "author", content: "Vogue Business and Archrival" },
-      { property: "og:title", content: "Gen Z Broke the Funnel | Vogue Business × Archrival" },
+      { name: "author", content: "The Crowd Effect" },
+      { property: "og:title", content: "The Crowd Effect" },
       {
         property: "og:description",
         content:
-          "An interactive report from Vogue Business and Archrival on how Gen Z is reshaping shopping and the marketing funnel.",
+          "An editorial exploration of how popularity, social pressure and repetition influence what we think, believe and do.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -103,7 +103,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.png", type: "image/png", sizes: "64x64" },
     ],
   }),
   shellComponent: RootShell,
@@ -122,11 +122,15 @@ declare module "@tanstack/react-router" {
 }
 
 function RootShell({ children }: { children: ReactNode }) {
-  const importedDocument = useImportedMatches({ select: matches => matches.at(-1)?.staticData.importedDocument });
+  const importedDocument = useImportedMatches({
+    select: (matches) => matches.at(-1)?.staticData.importedDocument,
+  });
   return (
     <html lang="en" {...importedDocument?.html}>
       <head>
-        <style href="site-import-inline" precedence="imported-inline">{"@layer imported-inline;"}</style>
+        <style href="site-import-inline" precedence="imported-inline">
+          {"@layer imported-inline;"}
+        </style>
         <HeadContent />
       </head>
       <body {...importedDocument?.body}>

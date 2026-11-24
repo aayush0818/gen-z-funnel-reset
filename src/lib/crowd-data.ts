@@ -1,12 +1,13 @@
 // Research values used by the charts. Keep these exactly as reported in the cited sources.
 
 export const ASCH_MAJORITY_SIZE = [
+  { opponents: 1, incorrect: 3.6 },
   { opponents: 2, incorrect: 13.6 },
   { opponents: 3, incorrect: 31.8 },
   { opponents: 4, incorrect: 35.1 },
   { opponents: 6, incorrect: 35.2 },
   { opponents: 7, incorrect: 37.1 },
-  { opponents: 9, incorrect: 33.1 },
+  { opponents: 9, incorrect: 35.1 },
   { opponents: 15, incorrect: 31.2 },
 ] as const;
 
@@ -34,6 +35,8 @@ export const ILLUSORY_TRUTH = {
 } as const;
 
 export const ECHO_REVIEW = { studies: 129, year: 2025 } as const;
+export const WANG = { studies: 41, effectSizes: 161, year: 2023 } as const;
+export const CENTOLA = { participants: 1528, year: 2010 } as const;
 
 export type Source = {
   n: number;
@@ -45,7 +48,7 @@ export type Source = {
   why: string;
 };
 
-export const SOURCES: Source[] = [
+export const SOURCES = [
   {
     n: 1,
     authors: "Solomon E. Asch",
@@ -53,69 +56,96 @@ export const SOURCES: Source[] = [
     title: "Opinions and Social Pressure",
     journal: "Scientific American, 193(5), 31–35",
     url: "https://web.mit.edu/curhan/www/docs/Articles/15341_Readings/Influence_Compliance/Asch_1955_Opinions_and_social_pressure.pdf",
-    why: "The classic line-judgment studies. Source of the 36.8% figure, the majority-size conditions in Chart 01 and the effect of a single supporting partner.",
+    why: "The classic line-judgment studies. Source of the 36.8% main-series result, the reported group-size conditions and the effect of a supporting partner.",
   },
   {
     n: 2,
-    authors: "Robert B. Cialdini & Noah J. Goldstein",
-    year: 2004,
-    title: "Social Influence: Compliance and Conformity",
-    journal: "Annual Review of Psychology, 55, 591–621",
-    url: "https://doi.org/10.1146/annurev.psych.55.090902.142015",
-    why: "A review of why people conform — to be accurate, to be accepted, and to keep a positive self-image. Frames the social proof, normative and informational processes in Chapter 02.",
-  },
-  {
-    n: 3,
     authors: "Lev Muchnik, Sinan Aral & Sean J. Taylor",
     year: 2013,
     title: "Social Influence Bias: A Randomized Experiment",
     journal: "Science, 341(6146), 647–651",
     url: "https://doi.org/10.1126/science.1240466",
-    why: "A randomized field experiment on a social news site showing that one early up-vote shifted later ratings — and that positive and negative cues behaved differently.",
+    why: "A randomized experiment on a social news site. Positive social influence increased the likelihood of a positive rating by 32% and final ratings by 25% on average; negative influence produced an asymmetric response.",
   },
   {
-    n: 4,
+    n: 3,
     authors: "Damon Centola",
     year: 2010,
     title: "The Spread of Behavior in an Online Social Network Experiment",
     journal: "Science, 329(5996), 1194–1197",
     url: "https://doi.org/10.1126/science.1185231",
-    why: "Showed that a health behaviour spread further through clustered networks, where people received reinforcing signals from several contacts. The basis of the network graphic in Chapter 05.",
+    why: "An online experiment with 1,528 participants found that an online health forum spread farther and faster in clustered than corresponding random networks, with multiple-neighbour reinforcement contributing to adoption.",
+  },
+  {
+    n: 4,
+    authors: "Sai Wang, Tsz Hang Chu & Guanxiong Huang",
+    year: 2023,
+    title:
+      "Do Bandwagon Cues Affect Credibility Perceptions? A Meta-Analysis of the Experimental Evidence",
+    journal: "Communication Research, 50(6)",
+    url: "https://doi.org/10.1177/00936502221124395",
+    why: "A meta-analysis of 41 studies and 161 effect sizes. The overall association between bandwagon cues and credibility perceptions was positive but small, with variation by topic, expertise and cultural context.",
   },
   {
     n: 5,
-    authors: "Sai Wang, Tsz Hang Chu & Guanxiong Huang",
-    year: 2023,
-    title: "Do Bandwagon Cues Affect Credibility Perceptions? A Meta-Analysis of the Experimental Evidence",
-    journal: "Communication Research, 50(6)",
-    url: "https://doi.org/10.1177/00936502221124395",
-    why: "Pools experiments on likes, shares and view counts to ask whether popularity cues make online content seem more credible — the bridge between popularity and perceived credibility.",
+    authors: "Steeven Ye et al.",
+    year: 2026,
+    title:
+      "Systematic Review and Meta-analysis of the Evidence for an Illusory Truth Effect and Its Determinants",
+    journal: "Nature Communications, 17, 3270",
+    url: "https://doi.org/10.1038/s41467-026-70041-x",
+    why: "A systematic review and meta-analysis of 182 studies, 366 effect sizes and 31,184 participants. The bias-corrected overall effect was g = 0.37 (95% CI 0.30–0.44), a small positive effect with substantial variation.",
   },
   {
     n: 6,
-    authors: "Matthew Barnfield",
-    year: 2019,
-    title: "Think Twice before Jumping on the Bandwagon: Clarifying Concepts in Research on the Bandwagon Effect",
-    journal: "Political Studies Review",
-    url: "https://doi.org/10.1177/1478929919870691",
-    why: "Separates the different mechanisms that get labelled 'bandwagon effects'. A useful warning against treating every follow-the-crowd behaviour as the same thing.",
-  },
-  {
-    n: 7,
-    authors: "Steeven Ye et al.",
-    year: 2026,
-    title: "Systematic Review and Meta-analysis of the Evidence for an Illusory Truth Effect and Its Determinants",
-    journal: "Nature Communications, 17, 3270",
-    url: "https://doi.org/10.1038/s41467-026-70041-x",
-    why: "182 studies and 31,184 participants: repetition reliably raises truth judgments a little (g = 0.37), with large variation between methods. The data behind Chart 03.",
-  },
-  {
-    n: 8,
     authors: "David Hartmann et al.",
     year: 2025,
-    title: "A Systematic Review of Echo Chamber Research: Comparative Analysis of Conceptualizations, Operationalizations, and Varying Outcomes",
+    title:
+      "A Systematic Review of Echo Chamber Research: Comparative Analysis of Conceptualizations, Operationalizations, and Varying Outcomes",
     journal: "Journal of Computational Social Science, 8, 52",
     url: "https://doi.org/10.1007/s42001-025-00381-z",
-    why: "Reviews 129 studies and shows that whether echo chambers 'exist' depends heavily on how they are defined and measured. The basis of the evidence map in Chapter 08.",
+    why: "A review of 129 peer-reviewed studies found results depended on how echo chambers were defined and measured: network-based studies more often supported the hypothesis, while broader content-exposure and survey studies often challenged it.",
   },
-];
+] as const satisfies readonly [Source, Source, Source, Source, Source, Source];
+
+export const VISUAL_ASSETS = [
+  {
+    name: "Hero collage background",
+    source:
+      "Imported site assets public/site-assets/7454e51a9c246c10.webp and 80a943002e1a54ba.webp",
+    license:
+      "Bundled in the imported reference project; underlying image rights are not documented.",
+  },
+  {
+    name: "Community food-distribution photograph",
+    source: "Caleb Oquendo, Pexels: https://www.pexels.com/photo/34612590/",
+    localFile: "public/images/community-food-distribution.jpg",
+    license: "Pexels License; free to use, with attribution optional. Credited on the page.",
+  },
+  {
+    name: "Friends looking at a phone",
+    source: "Ivan S, Pexels: https://www.pexels.com/photo/7213646/",
+    localFile: "public/images/friends-looking-at-phone.jpg",
+    license: "Pexels License; free to use, with attribution optional. Credited on the page.",
+  },
+  {
+    name: "Social media browsing photograph",
+    source:
+      "cottonbro studio, Pexels: https://www.pexels.com/photo/a-woman-browsing-on-a-smartphone-6963602/",
+    localFile: "public/images/social-feed-browsing.jpg",
+    license: "Pexels License; free to use, with attribution optional. Credited on the page.",
+  },
+  {
+    name: "Friends dancing photograph",
+    source:
+      "Polina Tankilevitch, Pexels: https://www.pexels.com/photo/women-dancing-together-4820199/",
+    localFile: "public/images/friends-dance-trend.jpg",
+    license: "Pexels License; free to use, with attribution optional. Credited on the page.",
+  },
+  {
+    name: "Concert crowd photograph",
+    source: "Maor Attias, Pexels: https://www.pexels.com/photo/5192289/",
+    localFile: "public/images/viral-crowd.jpg",
+    license: "Pexels License; free to use, with attribution optional. Credited on the page.",
+  },
+] as const;
