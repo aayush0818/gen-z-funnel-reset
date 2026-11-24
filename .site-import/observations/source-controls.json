@@ -1,10 +1,10 @@
 [
   {
     "viewport": "desktop",
-    "fatal": "Locator.bounding_box: Timeout 5000ms exceeded.\nCall log:\n  - waiting for locator(\"[aria-controls=\\\"site-menu\\\"]\").first\n    - locator resolved to visible <span aria-expanded=\"false\" aria-controls=\"site-menu\" class=\"relative size-10 flex justify-center items-center rounded-full bg-brand-black text-brand-white group cursor-pointer opener z-2\">…</span>\n"
+    "fatal": "Locator.wait_for: Timeout 5000ms exceeded.\nCall log:\n  - waiting for locator(\"main\") to be visible\n    - locator resolved to visible <main role=\"main\" class=\"relative flex-grow w-full overflow-clip\">…</main>\n"
   },
   {
     "viewport": "phone",
-    "fatal": "Page.get_attribute() missing 1 required positional argument: 'name'"
+    "fatal": "Locator.wait_for: Timeout 5000ms exceeded.\nCall log:\n  - waiting for locator(\"main\") to be visible\n"
   }
 ]
