@@ -4367,6 +4367,38 @@ html.lenis, html.lenis body { height: auto; }
     padding: 0 !important;
   }
 
+  .custom-page[data-site-import-repair="true"] #ComponentSectionGravitatesToMore [data-site-import-static-stage="gravitates-engagement"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 292vh !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .custom-page[data-site-import-repair="true"] #ComponentSectionGravitatesToMore [data-site-import-static-content="gravitates-engagement"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  .custom-page[data-site-import-repair="true"] #ComponentSectionGravitatesToMore [data-site-import-static-stage="gravitates-products"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 86vh !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .custom-page[data-site-import-repair="true"] #ComponentSectionGravitatesToMore [data-site-import-static-content="gravitates-products"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
   .custom-page[data-site-import-repair="true"] main .char {
     transform: none !important;
   }
